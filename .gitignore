@@ -1,1 +1,5 @@
 .DS_Store
+target
+catalog-v001.xml
+*~
+saref-pipeline.jar
