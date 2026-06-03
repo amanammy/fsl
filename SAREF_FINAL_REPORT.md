@@ -142,3 +142,54 @@ valuable because:
 - Round 1 Audit: SAREF_AUDIT_ROUND1.md
 - Round 2 Audit: SAREF_AUDIT_ROUND2.md
 
+
+---
+
+## 7. Additional Findings (Added After Initial Report)
+
+### Sub-Ontology Inspection (Step B completion)
+
+We inspected all 7 FSL sub-ontologies:
+ae.ttl, ce.ttl, fe.ttl, ie.ttl, le.ttl, pe.ttl, te.ttl
+
+**What they had:**
+- tbox policy annotations ✅
+- rdfs:comment on ontology header ✅
+- rdfs:label on individual entries ✅
+- owl:imports ✅
+
+**What they were missing:**
+- owl:versionIRI ❌
+- owl:versionInfo ❌
+
+**Action taken:**
+Propagated version metadata v1.0.0 to all 7 sub-ontologies.
+
+---
+
+### Release Mode Results (Step D completion)
+
+Ran saref-pypeline in strict release mode after develop mode
+fixes were complete.
+
+**New errors in release mode vs develop mode:**
+
+| New Error | Clause | Category |
+|---|---|---|
+| dcterms:modified missing | 9.4.3.2 | ETSI-specific — skip |
+| dcterms:source must be saref.etsi.org | 9.4.3.2 | ETSI-specific — skip |
+| dcterms:issued missing | 9.4.3.2 | ETSI-specific — skip |
+
+**Key finding:**
+Release mode adds 3 additional errors — all ETSI-specific.
+This further confirms that full SAREF compliance requires
+ETSI membership and cannot be achieved by independent
+research ontologies like FSL.
+
+**Final error count comparison:**
+
+| Mode | Errors | Fixable | ETSI-specific |
+|---|---|---|---|
+| Develop | 8 | 0 remaining | 8 |
+| Release | 11 | 0 remaining | 11 |
+
