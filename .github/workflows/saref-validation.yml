@@ -1,0 +1,41 @@
+name: SAREF Pypeline Validation
+
+on:
+  push:
+    branches: [ main, saref-compatibility ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  saref-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout FSL
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install saref-pypeline
+        run: |
+          pip install rdflib==7.0.0 pyshacl requests click jinja2 pyyaml beautifulsoup4 gitpython markdown python-gitlab
+          pip install git+https://labs.etsi.org/rep/saref/saref-pypeline.git --no-deps
+
+      - name: Create metadata file
+        run: |
+          mkdir -p target/sources
+          echo "projects: []" > target/sources/projects_metadata.yaml
+
+      - name: Run SAREF validation
+        run: |
+          python -m saref_pypeline check --skip-fetch .
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saref-validation-report
+          path: target/
