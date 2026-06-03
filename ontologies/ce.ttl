@@ -17,6 +17,8 @@
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Sub-ontology / ABox for conceptual entities"@en,
         "This module also hosts the reusable language-concept framework used across software-language modules."@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/ce/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 :AbstractionConcept a tbox:ConceptualEntity,

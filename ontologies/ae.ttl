@@ -12,6 +12,8 @@
     tbox:linkingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Sub-ontology / ABox for software artifacts"@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/ae/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 :APIDescriptionArtifact a tbox:ArtifactEntity ;

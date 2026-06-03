@@ -11,6 +11,8 @@
     tbox:linkingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Sub-ontology / ABox for the formal entities"@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/fe/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 :AbstractRewritingSystem a tbox:FormalEntity ;

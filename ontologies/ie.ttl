@@ -15,5 +15,7 @@
     tbox:linkingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Sub-ontology / ABox for issue entities. Resource-level issues use tbox:target. Assertion-level issues use tbox:subject, tbox:predicate, and tbox:object to designate the roles of resources in the reviewed assertion."@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/ie/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 

@@ -21,6 +21,8 @@ Borderline cases may be documented using skos:note.
 Paradigm-based subclassing of programming languages is not used; paradigms are represented via concept support.
 """@en ;
     rdfs:comment "Sub-ontology / ABox for programming-language concepts and programming languages"@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/pe/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 :ProgrammingLanguage a tbox:LanguageEntity,

@@ -14,6 +14,8 @@
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Programming languages are maintained in the pe module; this module keeps non-programming software languages and broad language-kind taxonomies."@en,
         "Sub-ontology / ABox for software languages"@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/le/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 

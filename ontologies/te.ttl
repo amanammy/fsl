@@ -14,6 +14,8 @@
     tbox:linkingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     tbox:metamodelingPolicy "See http://www.softlang.org/ontologies/tbox -- the same policy applies here."@en ;
     rdfs:comment "Sub-ontology / ABox for software tools"@en ;
+    owl:versionIRI <http://www.softlang.org/ontologies/te/v1.0.0> ;
+    owl:versionInfo "v1.0.0" ;
     owl:imports <http://www.softlang.org/ontologies/tbox> .
 
 :APIWorkbench a tbox:ToolEntity ;
