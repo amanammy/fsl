@@ -14,15 +14,16 @@ jobs:
       - name: Checkout FSL
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
 
-      - name: Install saref-pypeline
+      - name: Clone saref-pypeline
+        run: git clone https://labs.etsi.org/rep/saref/saref-pypeline.git
+
+      - name: Build saref-pypeline Docker image
         run: |
-          pip install rdflib==7.0.0 pyshacl requests click jinja2 pyyaml beautifulsoup4 gitpython markdown python-gitlab
-          pip install git+https://labs.etsi.org/rep/saref/saref-pypeline.git --no-deps
+          cd saref-pypeline
+          docker build -t saref-pypeline .
 
       - name: Create metadata file
         run: |
@@ -31,7 +32,9 @@ jobs:
 
       - name: Run SAREF validation
         run: |
-          python -m saref_pypeline check --skip-fetch .
+          docker run --rm \
+            -v "$(pwd):/saref" \
+            saref-pypeline saref-dev check --skip-fetch /saref
 
       - name: Upload report
         if: always()
