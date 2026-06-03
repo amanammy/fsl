@@ -34,11 +34,17 @@ jobs:
         run: |
           docker run --rm \
             -v "$(pwd):/saref" \
-            saref-pypeline saref-dev check --skip-fetch /saref
+            saref-pypeline saref-dev check --skip-fetch /saref 2>&1 | tee saref-output.txt
+          if grep -q "ERROR" saref-output.txt; then
+            echo "SAREF validation found errors — see report above"
+            exit 1
+          fi
 
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: saref-validation-report
-          path: target/
+          path: |
+            saref-output.txt
+            target/
