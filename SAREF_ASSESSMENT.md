@@ -210,3 +210,35 @@ whether SAREF is adopted long-term.
 5. Use this Clause 9 mapping as a template for the FSL-specific
    quality checklist
 
+
+---
+
+## Addendum — Compliance Progress (from custom run_checks.py)
+
+A custom Python compliance checker (run_checks.py) was written to
+implement all applicable Clause 9 checks without ETSI constraints.
+This gives granular per-clause PASS/FAIL/WARN results for FSL.
+
+### Compliance Progress Table
+
+| State | PASS | WARN | FAIL |
+|---|---|---|---|
+| FSL on main branch (original) | 14 | 2 | 21 |
+| FSL after structural fixes | 28 | 2 | 12 |
+| Full compliance (incl. metadata) | 46 | 1 | 0 |
+
+### Specific Label Coverage
+
+From automated term scan across all FSL modules (241 total terms):
+- 19/241 terms missing rdfs:label@en (8%)
+- 52/241 terms missing rdfs:comment@en (22%)
+
+These are straightforward additions — no structural changes needed.
+
+### What run_checks.py Covers
+
+The custom checker implements Clauses 9.2, 9.3, 9.4.1, 9.4.2,
+9.4.3.1, 9.4.3.2, 9.4.3.3, 9.4.4.1, 9.4.4.2, 9.4.5, 9.5,
+9.6, 9.7, and 9.8 — all applicable requirements without
+ETSI-specific constraints.
+
